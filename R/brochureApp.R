@@ -30,20 +30,19 @@
 #' @return A shiny.appobj
 #' @export
 brochureApp <- function(
-  ...,
-  onStart = NULL,
-  options = list(),
-  enableBookmarking = NULL,
-  content_404 = "Not found",
-  basepath = "",
-  req_handlers = list(),
-  res_handlers = list(),
-  wrapped = shiny::tagList
-) {
+    ...,
+    onStart = NULL,
+    options = list(),
+    enableBookmarking = NULL,
+    content_404 = "Not found",
+    basepath = "",
+    req_handlers = list(),
+    res_handlers = list(),
+    wrapped = shiny::tagList) {
   # Saving the brochure
   brochure(
     ...,
-    basepath = "",
+    basepath = basepath,
     req_handlers = req_handlers,
     res_handlers = res_handlers,
     wrapped = wrapped
