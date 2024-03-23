@@ -21,7 +21,7 @@
 #' (potentially modified), or an object of class httpResponse. If any of the
 #' req_handlers return an httpResponse, this response will be sent to the browser
 #' immeditately, stopping any other code.
-#' @param res_handlers A list of functions that can manipulate the httpResponse
+#' @param res_handlers A list of functions th at can manipulate the httpResponse
 #' object before it is send to the browser. Each function must take a `res` and
 #' `req` parameter.
 #' @param content_404 The content to dislay when a 404 is sent
@@ -162,9 +162,11 @@ brochureApp <- function(
     # This allows shiny to be able to look for its assets
     # We should only inject the base tag if the response does not
     # already have one
-    if (!grepl("<base href", res$content)) {
-      res$content <- sub("<head>", "<head><base href=\'/'>", res$content, ignore.case = TRUE)
-    }
+
+    # Disabled this as it seems to cause an issue on posit workbench
+    # if (!grepl("<base href", res$content)) {
+    #   res$content <- sub("<head>", "<head><base href=\'/'>", res$content, ignore.case = TRUE)
+    # }
     return(res)
   }
   return(res)

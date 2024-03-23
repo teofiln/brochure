@@ -23,12 +23,11 @@
 #' @noRd
 #' @importFrom shiny tagList
 brochure <- function(
-  ...,
-  basepath = "",
-  req_handlers = list(),
-  res_handlers = list(),
-  wrapped = shiny::fluidPage
-) {
+    ...,
+    basepath = "",
+    req_handlers = list(),
+    res_handlers = list(),
+    wrapped = shiny::fluidPage) {
   # Put the basepath and the req_handlerss
   ...multipage_opts$basepath <- basepath
   ...multipage_opts$req_handlers <- req_handlers
@@ -109,12 +108,11 @@ brochure <- function(
 #'   )
 #' )
 page <- function(
-  href,
-  ui = tagList(),
-  server = function(input, output, session) {},
-  req_handlers = list(),
-  res_handlers = list()
-) {
+    href,
+    ui = tagList(),
+    server = function(input, output, session) {},
+    req_handlers = list(),
+    res_handlers = list()) {
   href <- rm_backslash(href)
   # Page are href + ui
   res <- list(
@@ -146,11 +144,9 @@ page <- function(
 #' @return A redirection
 #' @export
 redirect <- function(
-  from,
-  to,
-  code = 301
-) {
-
+    from,
+    to,
+    code = 301) {
   # We need the redirect to be a specific HTTP code
   check_redirect_code(code)
 
